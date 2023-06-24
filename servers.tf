@@ -6,6 +6,12 @@ resource "aws_instance" "frontend" {
     Name = "frontend"
   }
 }
+output "frontend"
+{
+  value = aws_instance.frontend.public_ip
+
+}
+
 resource "aws_instance" "mongodb" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
@@ -13,6 +19,11 @@ resource "aws_instance" "mongodb" {
   tags = {
     Name = "mongodb"
   }
+}
+output "mongodb"
+{
+  value = aws_instance.mongodb.public_ip
+
 }
 
 resource "aws_instance" "catalogue" {
@@ -23,6 +34,12 @@ resource "aws_instance" "catalogue" {
     Name = "catalogue"
   }
 }
+output "catalogue"
+{
+  value = aws_instance.catalogue.public_ip
+
+}
+
 resource "aws_instance" "redis" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
@@ -31,6 +48,12 @@ resource "aws_instance" "redis" {
     Name = "redis"
   }
 }
+output "redis"
+{
+  value = aws_instance.redis.public_ip
+
+}
+
 resource "aws_instance" "cart" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
@@ -39,6 +62,12 @@ resource "aws_instance" "cart" {
     Name = "cart"
   }
 }
+output "cart"
+{
+  value = aws_instance.cart.public_ip
+
+}
+
 resource "aws_instance" "mysql" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
@@ -47,6 +76,12 @@ resource "aws_instance" "mysql" {
     Name = "mysql"
   }
 }
+output "mysql"
+{
+  value = aws_instance.mysql.public_ip
+
+}
+
 resource "aws_instance" "shipping" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
@@ -55,6 +90,12 @@ resource "aws_instance" "shipping" {
     Name = "shipping"
   }
 }
+output "shipping"
+{
+  value = aws_instance.shipping.public_ip
+
+}
+
 resource "aws_instance" "rabbitmq" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
@@ -62,4 +103,9 @@ resource "aws_instance" "rabbitmq" {
   tags = {
     Name = "rabbitmq"
   }
+}
+output "rabbitmq"
+{
+  value = aws_instance.rabbitmq.public_ip
+
 }
