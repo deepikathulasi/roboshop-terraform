@@ -58,7 +58,7 @@ resource "aws_instance" "cart" {
 }
 output "cart"{
 value = aws_instance.cart.public_ip
-}}
+}
 
 resource "aws_instance" "mysql" {
   ami           = "ami-03265a0778a880afb"
