@@ -9,7 +9,7 @@ data "aws_ami" "centos" {
   #}
    data "aws_security_group" "allow-all" {
       name = "allow-all"
-      id = var.security_group_id
+
     }
 
   variable "instance_type"{
