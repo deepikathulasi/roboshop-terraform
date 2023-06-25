@@ -35,7 +35,7 @@ resource "aws_route53_record" "frontend" {
 
 resource "aws_instance" "mongodb" {
   ami           = data.aws_ami.centos.image_id
-  instance = var.instance_type
+  value = var.instance_type
 
   tags = {
     Name = "mongodb"
