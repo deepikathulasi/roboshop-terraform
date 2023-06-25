@@ -162,7 +162,7 @@ count = length(var.components)
   //type    = "A"
   //ttl     = "30"
   //records = [aws_instance.shipping.private_ip]
-}
+//}
 
 #rabbitmq
 //resource "aws_instance" "rabbitmq" {
