@@ -12,25 +12,76 @@ data "aws_ami" "centos" {
 
     }
 
-  variable "instance_type"{
-  default="t3.micro"
-  }
+  //variable "instance_type"{
+  //default="t3.micro"
+  //}
+#using count
+//variable "components"{
+//default=["frontend","catalogue","mongodb"]
+//}
 
+//resource "aws_instance" "instance" {
+//count = length(var.components)
+  //ami           = data.aws_ami.centos.image_id
+  //instance_type = var.instance_type
+  //vpc_security_group_ids =[data.aws_security_group.allow-all.id]
+
+  //tags = {
+    //Name = var.components[count.index]
+  //}
+//}
+#for-each
 variable "components"{
-default=["frontend","catalogue","mongodb"]
-}
-
-#frontend
+           default={
+                    frontend={
+                     name = "frontend"
+                     instance_type="t3.micro"
+                      }
+                      mongodb={
+                        name = "mongodb"
+                        instance_type="t3.small"
+                         }
+                         catalogue={
+                         name = "catalogue"
+                         instance_type="t3.micro"
+                         }
+                         redis={
+                          name = "redis"
+                          instance_type="t3.small"
+                          }
+                          user={
+                           name = "user"
+                           instance_type="t3.micro"
+                           }
+                           mysql={
+                             name = "mysql"
+                            instance_type="t3.small"
+                              }
+                            shipping={
+                              name = "shipping"
+                              instance_type="t3.medium"
+                               }
+                               rabbitmq={
+                                 name = "rabbitmq"
+                                instance_type="t3.small"
+                                 }
+                                 payment={
+                                   name = "payment"
+                                   instance_type="t3.small"
+                                    }
+                  }
+                  }
 resource "aws_instance" "instance" {
-count = length(var.components)
+for_each=var.components
   ami           = data.aws_ami.centos.image_id
-  instance_type = var.instance_type
-  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
-
-  tags = {
-    Name = var.components[count.index]
-  }
+  instance_type = each.value["instance_type"]
+    vpc_security_group_ids =[data.aws_security_group.allow-all.id]
+tags={
+name=each.value["name"]
 }
+}
+
+
 //output "frontend"{
 //value = aws_instance.frontend.public_ip
 //}
