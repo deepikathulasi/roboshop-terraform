@@ -81,7 +81,7 @@ Name=each.value["name"]
 }
 }
 
-resource "aws-route53_record" "records"{
+resource "aws_route53_record" "records"{
 for-each = var.components
 zone_id ="Z0458836EHR8MPWSFHZ5"
 name ="${each.value["name"]}-devops1008.online
