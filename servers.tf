@@ -4,9 +4,9 @@ data "aws_ami" "centos" {
   name_regex = "Centos-8-DevOps-Practice"
   }
 
-  #output "ami"{
-  #value = data.aws_ami.centos.image_id
-  #}
+  //output "ami"{
+  //value = data.aws_ami.centos.image_id
+  //}
    data "aws_security_group" "allow-all" {
       name = "allow-all"
 
@@ -15,7 +15,7 @@ data "aws_ami" "centos" {
   //variable "instance_type"{
   //default="t3.micro"
   //}
-#using count
+//using count
 //variable "components"{
 //default=["frontend","catalogue","mongodb"]
 //}
@@ -30,7 +30,7 @@ data "aws_ami" "centos" {
     //Name = var.components[count.index]
   //}
 //}
-#for-each
+//for-each
 variable "components"{
            default={
                     frontend={
@@ -122,7 +122,7 @@ resource "aws_route53_record" "records"{
   //records = [aws_instance.mongodb.private_ip]
 //}
 
-#catalogue
+//catalogue
 //resource "aws_instance" "catalogue" {
   //ami           = data.aws_ami.centos.image_id
 //instance_type = var.instance_type
@@ -142,7 +142,7 @@ resource "aws_route53_record" "records"{
   //records = [aws_instance.catalogue.private_ip]
 //}
 
-#redis
+//redis
 //resource "aws_instance" "redis" {
   //ami           = data.aws_ami.centos.image_id
   //instance_type = var.instance_type
@@ -162,7 +162,7 @@ resource "aws_route53_record" "records"{
  // records = [aws_instance.redis.private_ip]
 //}
 
-#cart
+//cart
 //resource "aws_instance" "cart" {
  // ami           = data.aws_ami.centos.image_id
   //instance_type = var.instance_type
@@ -182,7 +182,7 @@ resource "aws_route53_record" "records"{
   //records = [aws_instance.cart.private_ip]
 //}
 
-#mysql
+//mysql
 //resource "aws_instance" "mysql" {
   //ami           = data.aws_ami.centos.image_id
  //instance_type = var.instance_type
@@ -202,7 +202,7 @@ resource "aws_route53_record" "records"{
   //records = [aws_instance.mysql.private_ip]
 //}
 
-#shipping
+//shipping
 
 //resource "aws_instance" "shipping" {
   //ami           = data.aws_ami.centos.image_id
@@ -223,7 +223,7 @@ resource "aws_route53_record" "records"{
   //records = [aws_instance.shipping.private_ip]
 //}
 
-#rabbitmq
+//rabbitmq
 //resource "aws_instance" "rabbitmq" {
  // ami           = data.aws_ami.centos.image_id
   //instance_type = var.instance_type
