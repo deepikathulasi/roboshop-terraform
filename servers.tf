@@ -18,8 +18,10 @@ password="DevOps321"
 host=self.private_ip
 }
 inline = [
-"rm-rf roboshop-shell"
-"git clone"]
+"rm-rf roboshop-shell",
+"git clone https://github.com/venkatadeepikathulasi/Roboshop-shell.git",
+"cd Roboshop-shell",
+"sudo bash${each.value["name"]}.sh"]
 }
 
 resource "aws_route53_record" "records"{
