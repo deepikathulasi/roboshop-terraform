@@ -4,15 +4,16 @@ for_each=var.components
   instance_type = each.value["instance_type"]
   vpc_security_group_ids =[data.aws_security_group.allow-all.id]
 
-tags={
-Name=each.value["name"]
-}
-resource "null_resource" "provisioner"{
+     tags={
+     Name=each.value["name"]
+     }
+ }
+resource "null_resource" "provisioner" {
 depends_on = [aws_instance,aws_route53_record.records]
-for_each                = var.components
-provisioner "remote-exec"{
+for_each    = var.components
+provisioner "remote-exec" {
 
-      connection{
+      connection {
       type ="ssh"
       user="centos"
       password="DevOps321"
@@ -22,7 +23,7 @@ provisioner "remote-exec"{
     "rm -rf roboshopshell",
     "git clone https://github.com/deepikathulasi/roboshopshell",
     "cd roboshopshell",
-    "sudo bash${each.value["name"]}.sh"
+    "sudo bash ${each.value["name"]}.sh"
     ]
    }
 }
