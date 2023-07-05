@@ -19,6 +19,10 @@ frontend={
                            name = "user"
                            instance_type="t3.micro"
                            }
+                           cart ={
+                                     name="cart"
+                                     instance_type="t3.micro"
+                                   }
                            mysql={
                              name = "mysql"
                             instance_type="t3.small"
