@@ -16,7 +16,7 @@ provisioner "remote-exec"{
       type ="ssh"
       user="centos"
       password="DevOps321"
-      host=aws_instance.instance[each'type["name"]].private_ip
+      host=aws_instance.instance[each.value["name"]].private_ip
       }
     inline = [
     "rm -rf roboshopshell",
