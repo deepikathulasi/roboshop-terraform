@@ -20,7 +20,7 @@ host=self.private_ip
 inline = [
   "rm-rf roboshop-shell",
   "git clone https://github.com/deepikathulasi/roboshopshell.git,
-  "cd Roboshop-shell",
+  "cd roboshopshell",
   "sudo bash${each.value["name"]}.sh"
 ]
 }
